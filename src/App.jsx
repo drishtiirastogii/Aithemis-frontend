@@ -15,7 +15,7 @@ const App = () => {
       element: <Questions />,
     },
     {
-      path: "result",
+      path: "/result",
       element: <Result />,
     },
   ]);

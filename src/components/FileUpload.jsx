@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BaseURL from '../Urls';
 
 const FileUpload = ({ onUploadComplete }) => {
   const [state, setState] = useState([]);  
@@ -36,7 +37,7 @@ const FileUpload = ({ onUploadComplete }) => {
     });
   
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData);
+      const response = await axios.post(`${BaseURL}/upload`, formData);
   
       if (response.status === 200) {
         const fileId = response.data.fileId;

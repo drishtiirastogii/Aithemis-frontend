@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar';
 import { useNavigate, useLocation } from 'react-router-dom';
 import FileUpload from '../components/FileUpload'; 
 import axios from "axios";
+import BaseURL from "../Urls";
 
 const Questions = () => {
   const [question, setQuestion] = useState("");
@@ -28,7 +29,7 @@ const Questions = () => {
     }
 
     try {
-        const response = await axios.post("http://localhost:5000/ques", {
+        const response = await axios.post( `${BaseURL}`, {
         question,
         fileId,
       });

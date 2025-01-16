@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BaseURL from '../Urls';
 
 const Result = () => {
   const [fileId, setFileId] = useState(null);
@@ -9,7 +10,7 @@ const Result = () => {
   useEffect(() => {
     const fetchFileId = async () => {
       try {
-        const response = await fetch("http://localhost:5000/get-file-id");
+        const response = await fetch(`${BaseURL}/get-file-id`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -33,7 +34,7 @@ const Result = () => {
       try {
         setIsLoading(true);
         setError(null);
-        const response = await fetch("http://localhost:5000/generate", {
+        const response = await fetch(`${BaseURL}/generate`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
